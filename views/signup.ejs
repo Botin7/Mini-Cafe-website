@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>signup</title>
+  <link rel="stylesheet" href="../public/assets/css/signup.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    </style> 
+</head>
+<body>
+  <br><br>
+  <div id="container">
+    <img src="../public/assets/img/profile icon.png" alt="" width="50px" style="border-radius:90% ;">
+  <h1>Register</h1> <br/>
+  <form action="http://localhost:3000/register" method="POST"><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username: <input type="text" name="username" /> <br/><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Password:  <input type="password" name="password" /> <br/><br>
+    Confirm Password: <input type="password" name="confirm_password" /> <br/><br>
+    <button  type="submit" style="color: blue;height: 30px;">Register</button>
+  </form>
+  <h2>Already have an account?<form action="/signin" style="display: inline;"><button id="register" ><u>signin</u> </button> </form></h2>
+  <br><br>
+  <h1 id="login">Login or Create an account to save all your orders.</h1>
+</div>
+</body>
+</html>

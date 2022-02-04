@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="../css/Recipt.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reciption</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <address>
+                            <strong>Mini-Café</strong>
+                            <br>
+                            Institute of technology of cambodia
+                            <br>
+                            PhnomPenh, CA 90026
+                            <br>
+                            <abbr title="Phone">P:</abbr> (213) 484-6829
+                            <p>
+                                Receipt id #:<%= id %>
+                            </p>
+                        </address>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                        <p>
+                            <strong>Date:<%= date %></strong>
+                        </p>
+                        <p>
+                            <strong>Customer's name:<%= name %></strong>
+                        </p>
+                        <p>
+                            <strong>Phone's number:<%= phone %></strong>
+                        </p>
+                        <p>
+                            <strong>Location:<%= location %></strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text-center">
+                        <h1>Receipt</h1>
+                    </div>
+                    </span>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>amount</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-md-9"><strong><%= product %></strong></h4></td>
+                                <td class="col-md-1" style="text-align: center"> <%= amount %> </td>
+                                <td class="col-md-1 text-center">$<%= price %></td>
+                                <td class="col-md-1 text-center">$<%= total %></td>
+                              
+                            </tr>
+                            <tr>
+                                <td class="col-md-9">Delivery by:</h4></td>
+                                <td class="col-md-1" style="text-align: center"> <%= service %> </td>
+                                <td class="col-md-1 text-center"></td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-9">Paid by:</h4></td>
+                                <td class="col-md-1" style="text-align: center"> <%= payment %> </td>
+                                <td class="col-md-1 text-center"></td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td class="text-right"><h4><strong>Total: </strong></h4></td>
+                                <td class="text-center text-danger"><h4><strong>$<%=Math.round((amount * price)*100) / 100 %></strong></h4></td>
+                            </tr>
+                        </tbody>
+                    </table></td>
+                   
+                </div>
+                <button class="button"  type="submit" style="border: 1px solid black;box-shadow: 2px 1px black;font-size: larger;float: right;" ><a href="/"> Home</a></button>
+            </div>
+            
+        </div>
+
+
+</body>
+</html>
+
+<!-- service: service, name: name, phone: phone, amount: amount, payment: payment, date: date, location: location, people: people, product: product  -->
+<!-- Can use these with ejs to get data -->
+<!-- Should also have exit button to go to home page -->

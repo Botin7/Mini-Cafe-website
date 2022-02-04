@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="../public/assets/css/Homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    
+    <title>Signs Page</title>
+</head>
+<body>
+    <div>
+        <td>
+            <div class="header">
+                <div id="profile">
+                    <form action="/UserProfile"><button id="option_B"><img id="option" src="../assets/img/more_option.png" alt="" srcset=""></button></form>
+                    <div id="panda-box">
+
+                            <h2 id="pf_name">
+                                <% if (!username) { %>
+                                    User
+                                <% } else{ %>
+                                    <%=username%>
+                                <% } %>  
+                            </h2>
+                            <img id="panda" src="../assets/img/panda.jpg" alt="" srcset="">     
+                    </div>
+                </div>  
+            </div>
+        </td>
+    </div>
+
+        <td>
+            <div class="background"><br>
+                     <img id="logo" src="../assets/img/pizza.png" alt="" srcset=""> <form action="">
+                
+                          <span id="brandName">Online Ordering Pizza Shop</span>
+                <br><br>
+                         
+
+                </form><button id="click1">Order</button><button id="click">Book</button></form> 
+
+                <form class="search" action="/search" method="POST">
+                    <input type="text" placeholder="What are you looking for?" name="search2">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+
+                 
+                <% if (username == "admin2021") { %>
+                    <form action="http://localhost:3000/admin-Page"><button type="submit" id="adminBtn">Go to Admin Panel</button></form>
+                <% } %>
+                    <br><br>
+                <div id="menu-Bar">
+                    <div id="menu-Bar">
+                        <form action="http://localhost:3000/"><button>Home</button></form> 
+                        <form action="http://localhost:3000/monday-special"><button id="special">MondaySpecial</button></form>
+                        <form action="http://localhost:3000/chocolate"><button>chocolate</button></form>
+                        <form action="http://localhost:3000/combo-deals"><button>Combo Deals</button></form> 
+                        <form action="http://localhost:3000/drink-page"><button>Drinks</button></form>
+                        <form action="http://localhost:3000/sides-page"><button><u>Sides</u> </button></form>
+                     </div>
+
+                </div>
+
+                    <br>
+
+                    <div id="container">
+                        <img id="bg" src="../assets/img/pizza bg.jpg" alt="" srcset="">
+                        
+                        <div class="text_block">
+                       <h1> Online ordering Pizza Shop</h1>
+                       <p>Try out our online ordering system and place a test order</p><br></div>
+                    
+                    </div>
+                       
+
+                    <% var j = 0 %> 
+                    <div class="product_section">
+                        <% for( let i = 0; i < product.length; i++ ) { %>
+                            <% if (product[i].category == "Sides") { %>
+                                <div class="product_box">
+                                    <div class="product_descrip">
+                                        <div class="product_img">
+                                            <img id="product" src="../assets/img/pizza-margherita-600-400.jpeg" alt="" srcset="">
+                                        </div>
+                                        <div class="product_detail">
+                                            <br>
+                                            <h1 id="name"> <%= product[i].title %> 
+                                                <br>⭐ <%= product[i].category %> ⭐<br>
+                                                <p id="caption"> <%= product[i].description %> </p>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <h2 class="price">$<%= product[i].price %> </h2>
+                                    <div class="product_btn">
+                                        <form action="http://localhost:3000/product-page/<%=product[i]._id%>" class="order_btn_form"><button class="order">View Details</button></form>
+                                        <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button> 
+                                    </div>
+                                </div>
+                                <% j++ %> 
+                            <% } %>
+                        <% } %>
+                    </div>
+                    <% if (j==0) { %>
+                        <div id="noproduct">
+                            There isn't any products to be found.
+                        </div>
+                    <% } %>
+
+                <!-- <table id="table" cellspacing=100px>
+
+                
+                       <tr>
+    
+                        <td id="box1">
+                            <div id="promotion1">Regular</div>
+                            <img id="product" src="../assets/img/garlic-bread-600-400.jpeg" alt="" srcset="">
+                            <h1 id="name">Garlic-Bread
+                               <br>⭐ Sides ⭐<br>
+                               <p id="caption">Fresh Bread <br>
+                                               Topped with gren garlic <br>
+                                               It had show on the Sides menu everytime.</p></h1>
+
+                                <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+                               <h2>$2.99</h2> 
+                               <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+
+                               </td>
+       
+                         <td id="box1">
+                            <div id="promotion1">Regular</div>
+                            <img id="product" src="../assets/img/fries-600-400.jpeg" alt="" srcset="">
+                            <h1 id="name">Tomatoes fries
+                           <br>⭐ Sides⭐<br>
+                           <p id="caption">Tomato always keep <br>
+                                           fries all the times <br>
+                                           It had show on the Sides menu everytime.</p></h1>
+                           <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+
+                                       <h2>$3.99</h2>
+                                        
+                                       <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+       
+                               <td id="box1">
+                                       <div id="promotion1">Regular</div>
+                                       <img id="product" src="../assets/img/fried-chicken-600-400.jpeg" alt="" srcset="">
+                                           <h1 id="name">Chicken Fries
+                                            <br>⭐ Sides ⭐<br>
+                                           <p id="caption">Chicken fries is  choose from<br>
+                                                                  the fresh chicken.<br>
+                                                                  It had show on the Sides menu everytime.</p></h1>
+                                           <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+
+                                            <h2>$5.99</h2> 
+                                            <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+                            </tr>
+                 <tr>
+    
+                                     <td id="opening">
+                                                        
+                                     <img id="Hours" src="../assets/img/hours.jpg" alt="" srcset="">
+                                                 <h1 id="opening_H">Opening Hours
+                                                     <br>Monday - Sunday / 24H<br></h1></td>
+                                                            
+                                                <td id="box_cont">
+                                                  <br><br><br><br><br><br><br><br>
+                                                 <h1 id="Contact">Contact Us</h1>
+                                                 <span><input type="text" name="name" id="message" placeholder="Name">
+                                                 <input type="text" name="Email" id="message" placeholder="Email">
+                                                    
+                                                        </span>    
+                                                        <br>
+
+                                                <input type="text" name="text" id="subject" placeholder ="Write your message here: ">
+                                                                    
+                                                                    <button id="send">Send</button> </td> 
+                                                   
+                                                         
+
+
+                              </tr>  
+                </tr>
+
+
+                </table> -->
+                  
+                     <h1>Copyright By Online Ordering Pizza Store <br> @2021</h1>
+            </div>    
+        </td>
+       
+    </body>
+    
+</html>

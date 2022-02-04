@@ -1,0 +1,52 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../public/assets/css/purchaseHistory.css">
+<!------ Include the above in your HEAD tag ---------->
+
+    <div class="p-4">
+    <h2>Purchase History</h2>
+    <table class="table table-bordered track_tbl" >
+        <thead>
+            <tr>
+                <th></th>
+                <th>User</th>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Service</th>
+                <th>pay status</th>
+                <th>Date/Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%  %> 
+            <!-- <tr class="active">
+                <td class="track_dot">
+                    <span class="track_line"></span>
+                </td>
+                <td><h1><%=  %></h1></td>
+                <td><h1><%=  %></td>
+                <td><%=  %></td>
+                <td><%=  %></td> -->
+            </tr>
+            <% for(var i=0; i< order.length; i++) {%> 
+                <% if (username==order[i].username) { %>
+                 
+               
+                <tr class="active">
+                    <td class="track_dot">
+                        <span class="track_line"></span>
+                    </td>
+                    <td><h1><%=order[i].username  %></td>
+                    <td><%=order[i].product  %></td>
+                    <td><%=order[i].amount  %></td> 
+                    <td><%=order[i].service  %></td> 
+                    <td><%=order[i].payment  %></td> 
+                    <td><%= order[i].date  %></td>
+                </tr> <% } %>  
+            
+                    <% } %>
+
+        </tbody>
+    </table>
+    </div>

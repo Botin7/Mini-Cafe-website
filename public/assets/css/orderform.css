@@ -1,0 +1,116 @@
+body{
+    font-size: 1.2em;
+    background-color: rgb(107, 72, 7);
+}
+
+#logo{
+    margin-top: 20px;
+    border: 3px solid black;
+    margin-left: 20px;
+}
+#brandName{
+    margin-left: 25px;
+    font-weight: bold;
+    font-family: 'MilkyNice-Clean', Arial, sans-serif;
+    font-size: larger;
+    font-size: 1em;
+}
+
+#main_section {
+    background-color:#bbbbbb;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+}
+
+#pizza_header{
+    background-image: url(../img/coffee-cover.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    margin-top: 30px;
+}
+
+#text_block {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+#purchase_image {
+    text-align: center;
+    margin-top: 75px;
+}
+
+#purchase_text {
+    text-align: center;
+    margin-bottom: 75px;
+}
+
+.summit_button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+.summit_button button {
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+#send_button {
+    color: white;
+    background-color: #35BA23;
+    margin-right: 20px;
+}
+
+#cancel_button {
+    color: white;
+    background-color: #ff3300;
+}
+
+/* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* IMAGE STYLES */
+  [type=radio] + img {
+    cursor: pointer;
+  }
+  
+  /* CHECKED STYLES */
+  [type=radio]:checked + img {
+    outline: 2px solid black;
+  }
+
+
+/* The alert message box */
+.alert {
+    padding: 15px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    display: none;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}

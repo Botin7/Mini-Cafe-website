@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+    <link rel="stylesheet" href="../public/assets/css/Homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <title>Homepage</title>
+</head>
+<body id="body">
+    <div>
+        <td>
+            <div class="header" style="background: 0%;">
+                
+                <img id="back" src="../public/assets/img/coffee-cover.png" walt="">
+                <div id="top-bar">
+                    <div id="logo">
+                        <form id="lo" action="http://localhost:3000/"><button id="home" style="border-radius: 52%;" ><img id="logoo"  src="../public/assets/img/logo3.jpg" height="70px" alt=""></button></form>
+                        <div id="profile" style="border: black solid 2px; border-radius: 5%; margin-left: 10px;">
+                                <div id="panda-box">
+                                    <h2 id="pf_name" style="margin-top: 12px;">
+                                        
+                                        <% if (!username) { %>
+                                            User
+                                        <% } else{ %>
+                                            <%=username%> 
+                                        <% } %>  
+                                    </h2>
+                                    <form action="/UserProfile"> <button id="btn-pf">
+                                    <img id="panda" src="../public/assets/img/profile round.png" alt="" srcset="" style="width: 45px;height: 45px;"> </button></form>  
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                </div>
+                <form class="search" action="/search" method="POST">
+                    <input type="text" placeholder="" name="search2">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <% if (username == "admin2021") { %>
+                    <form action="http://localhost:3000/admin-Page"><button type="submit" id="adminBtn">Go to Admin Panel</button></form>
+                <% } %>
+            </div>
+        </td>
+    </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <!-- Change link to something like this on other pages as well -->
+                <div id="menu-Bar">
+                   <form action="http://localhost:3000/"><button id="special" style="color: aliceblue;">Special Offer</button></form> 
+                   <form action="http://localhost:3000/monday-special/"><button id="special">Coffee</button></form>
+                   <form action="http://localhost:3000/chocolate/"><button id="special">Chocolate</button></form>
+                   <form action="http://localhost:3000/combo-deals/"><button id="special">Tea</button></form> 
+                   
+                  
+                </div>
+
+
+                
+                
+                <% var j = 0 %> 
+                <div class="product_section">
+                    <% for( let i = 0; i < product.length; i++ ) { %>
+                        <div class="product_box">
+                            <div class="product_descrip">
+                                <div class="product_img">
+                                    <img id="product" src="../public/assets/img/coffee.jpg" alt="" srcset="">
+                                </div>
+                                <div class="product_detail">
+                                    <br><br><br>
+                                    <h1 id="name"> <%= product[i].title %> 
+                                        <br>⭐ <%= product[i].category %> ⭐<br>
+                                        <p id="caption"> <%= product[i].description %> </p>
+                                    </h1>
+                                </div>
+                            </div>
+                            <h2 class="price">$<%= product[i].price %> </h2>
+                            <div class="product_btn">
+                                <form action="http://localhost:3000/product-page/<%=product[i]._id%>" class="order_btn_form"><button class="order">View Details</button></form>
+                                <form action="http://localhost:3000/cart" method="POST">
+                                    <input type="text" name="ProductID" value="<%=product[i]._id%>" style="display: none;"/>
+                                    <input type="text" name="userID" value="<%=username%>" style="display: none;"/>
+                                    <input type="text" name="payment" value="<%= product[i].price %>" style="display: none;"/>
+                                    <input type="text" name="amount" value="1" style="display: none;"/>
+                                    <input type="text" name="title" value="<%= product[i].title %>" style="display: none;"/>
+
+                                    
+                            <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button> </form>
+                            </div>  
+                        </div>
+                        <% j++ %> 
+                    <% } %>
+                </div>
+                <% if (j==0) { %>
+                    <div id="noproduct">
+                        There isn't any products to be found.
+                    </div>
+                <% } %>
+                <!-- <table class="table" cellspacing=100px>
+
+                
+                       <tr>
+    
+                        <td id="box1">
+                            <div id="promotion">10% Off</div>
+                            <img id="product" src="../assets/img/pizza-margherita-600-400.jpeg" alt="" srcset="">
+                                <h1 id="name">Monday Magherita 
+                                    <br>⭐ Monday SPECIAL ⭐<br>
+                                    <p id="caption">This can also be set <br>
+                                                    to auto-hide on days <br>
+                                                    of the week when not available.Don't miss it</p></h1>
+                                                    <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+                                <h2>$9.00</h2> 
+                                <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+                        </td>
+
+                        <td id="box1">
+                            <div id="promotion1">Regular</div>
+                            <img id="product" src="../assets/img/pizza-margherita-600-400.jpeg" alt="" srcset="">
+                                <h1 id="name">Monday Magherita
+                                    <br>⭐ Pizza ⭐<br>
+                                    <p id="caption">Cheese, tomato & basil<br>
+                                                    with tomato base.<br>
+                                                    it had show on the pizza menu everytime.</p></h1>
+                                                    <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+                                <h2>$19.00</h2> 
+                                <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+
+                        <td id="box1">
+                                <div id="promotion">Save 5$</div>
+                                <img id="product" src="../assets/img/sets.jpg" alt="" srcset="">
+                                    <h1 id="name">Set for 30$ 
+                                     <br>⭐ Combodeals ⭐<br>
+                                    <p id="caption">This can also be set <br>
+                                                            to auto-hide on days <br>
+                                                            Tt had show on the Combodeals menu everytime.</p></h1>
+                                                            <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+                                     <h2>$19.00</h2> 
+                                     <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form></td>
+                                     
+                                     
+
+                          <tr>
+    
+                        <td id="box1">
+                            <div id="promotion1">Regular</div>
+                            <img id="product" src="../assets/img/baccon pizza.jpeg" alt="" srcset="">
+                                <h1 id="name">Baccon Pizza
+                                    <br>⭐ Pizza ⭐<br>
+                                    <p id="caption">Loaded with Baccon and cheese on<br>
+                                                    a tomato base.<br>
+                                                    It had show on the pizza menu everytime</p></h1>
+                                                    <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+                                <h2>$12.99</h2> 
+                                <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+                        </td>
+
+                        <td id="box1">
+                            <div id="promotion1">Regular</div>
+                            <img id="product" src="../assets/img/pizza-chicken.jpeg" alt="" srcset="">
+                                <h1 id="name">Chicken Pizza
+                                    <br>⭐ Pizza ⭐<br>
+                                    <p id="caption">Loaded with Chicken and <br>
+                                                      corn a Chillies base.<br>
+                                                      It had show on the pizza menu everytime.</p></h1>
+
+                                <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+                                <h2>$14.00</h2> 
+                                <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+
+                        <td id="box1">
+                                <div id="promotion1">Regular</div>
+                                <img id="product" src="../assets/img/veggie-pizza-600-400.jpeg" alt="" srcset="">
+                                    <h1 id="name">Veggie Pizza 
+                                     <br>⭐ Pizza ⭐<br>
+                                    <p id="caption">Tomato and Onion  with<br>
+                                                    light herb seasoning ,<br>
+                                                    It had show on the pizza menu everytime.</p></h1>
+                                            <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+
+                                            <h2>$12.00</h2> 
+                                         <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+                
+                         <tr>
+    
+                                 <td id="box1">
+                                     <div id="promotion1">Regular</div>
+                                     <img id="product" src="../assets/img/garlic-bread-600-400.jpeg" alt="" srcset="">
+                                     <h1 id="name">Garlic-Bread
+                                        <br>⭐ Sides ⭐<br>
+                                        <p id="caption">Fresh Bread <br>
+                                                        Topped with gren garlic <br>
+                                                        It had show on the Sides menu everytime.</p></h1>
+
+                                         <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+                                        <h2>$2.99</h2> 
+                                        <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+                                        </td>
+                
+                                  <td id="box1">
+                                     <div id="promotion1">Regular</div>
+                                     <img id="product" src="../assets/img/fries-600-400.jpeg" alt="" srcset="">
+                                     <h1 id="name">Tomatoes fries
+                                    <br>⭐ Sides⭐<br>
+                                    <p id="caption">Tomato always keep <br>
+                                                    fries all the times <br>
+                                                    It had show on the Sides menu everytime.</p></h1>
+                                    <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+
+                                                <h2>$3.99</h2>
+                                                 
+                                                <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+                
+                                        <td id="box1">
+                                                <div id="promotion1">Regular</div>
+                                                <img id="product" src="../assets/img/fried-chicken-600-400.jpeg" alt="" srcset="">
+                                                    <h1 id="name">Chicken Fries
+                                                     <br>⭐ Sides ⭐<br>
+                                                    <p id="caption">Chicken fries is  choose from<br>
+                                                                           the fresh chicken.<br>
+                                                                           It had show on the Sides menu everytime.</p></h1>
+                                                    <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+
+                                                     <h2>$5.99</h2> 
+                                                     <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+
+                                     <tr>
+    
+                                                        <td id="box1">
+                                                            <div id="promotion1">Regular</div>
+                                                            <img id="product2" src="../assets/img/coke.jpg "alt="" srcset="">
+                                                                <h1 id="name">Coke
+                                                                    <br>⭐ Drinks ⭐<br>
+                                                                    <p id="caption">Coca-cola  <br>
+                                                                                    Best drink(recommended) <br>
+                                                                                    It had show on the Drink menu everytime.</p></h1>
+                                                                    <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+                                                                <h2>$1.50</h2> 
+                                                                <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+                                                        </td>
+                                
+                                                        <td id="box1">
+                                                            <div id="promotion1">Regular</div>
+                                                            <img id="product" src="../assets/img/Angkor-Puro-1.png" alt="" srcset="">
+                                                                <h1 id="name">Fresh water
+                                                                    <br>⭐ Drinks⭐<br>
+                                                                    <p id="caption">Fresh Bottle <br>
+                                                                                    Best drink(recommended). <br>
+                                                                                    It had show on the Drink menu everytime.</p></h1>
+                                                                                    <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+                                                                <h2>$0.50</h2> 
+                                                                <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+                                
+                                                                <td id="box1">
+                                                                    <div id="promotion">Save 7.5$</div>
+                                                                    <img id="product1" src="../assets/img/Pizaa&coke.png" alt="" srcset="">
+                                                                        <h1 id="name">Combo Sets
+                                                                            <br>⭐ Combodeals<br>
+                                                                            <p id="caption">Set Pizza with Cokes<br>
+                                                                                            Save money. <br>
+                                                                                            It had show on Combodeals menu everytime.</p></h1>
+                                                                                            <button id="cart_b"><img id="cart" src="../assets/img/add to cart.jpg" alt="" srcset=""></button>
+                                                                        <h2>$16.50$</h2> 
+                                                                        <form action="http://localhost:3000/product-page/"><button id="order">Order Now</button></form>
+
+                                            <tr>              
+                                                          <td id="opening">
+                                                                
+                                                                  <img id="Hours" src="../assets/img/hours.jpg" alt="" srcset="">
+                                                                       <h1 id="opening_H">Opening Hours
+                                                                             <br>Monday - Sunday / 24H<br></h1></td>
+                                                            
+                                                          <td id="box_cont">
+                                                            <br><br><br><br><br><br><br><br>
+                                                            <h1 id="Contact">Contact Us</h1>
+                                                         <span><input type="text" name="name" id="message" placeholder="Name">
+                                                               <input type="text" name="Email" id="message" placeholder="Email">
+                                                    
+                                                           </span>    
+                                                           <br>
+
+                                                              <input type="text" name="text" id="subject" placeholder ="Write your message here: ">
+                                                                    
+                                                                    <button id="send">Send</button>
+                                                   
+                                                          </td> 
+
+
+                                            </tr>  
+                         </tr>
+
+
+                </table> -->
+                  
+               
+            </div>    
+        </td>
+    </body>
+</html>

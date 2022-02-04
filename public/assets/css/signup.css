@@ -1,0 +1,33 @@
+#container{
+   text-align: center;
+   border: 2px solid black;
+   width: 400px;
+   height: 540px;
+   padding: 60px;
+   margin-left: 480px;
+   background-color: rgb(197, 197, 197);
+   box-shadow: 2px 0 5px #222;
+   
+   
+}
+h2{
+    font-size: medium;
+}
+input{
+    border-radius: 5px;
+    box-shadow: 2px 0 10px #222;
+}
+body{
+    
+        background-image: url("../img/cover.jpg");
+        background-size: 100%;
+        opacity: 90%;
+}
+#register{
+    border: 0px;
+    background-color: rgb(197, 197, 197);
+    color: rgb(15, 32, 185);
+}
+#login{
+    font-size: large;
+}

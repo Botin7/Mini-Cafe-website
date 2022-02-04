@@ -1,0 +1,55 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../public/assets/css/UserProfile.css">
+<div class="container bootstrap snippets bootdey">
+<div class="row">
+  <div class="profile-nav col-md-3">
+      <div class="panel">
+          <div class="user-heading round">
+              <a href="#">
+                  <img src="../public/assets/img/panda.jpg">
+              </a>
+              <h1><%= username %></h1>
+              <p><%=username  %>@gmail.com</p>
+              <form action="http://localhost:3000/signin"><button><img style="width: 20px;" src="../public/assets/img/Signout-removebg-preview.png" alt="" srcset=""></button></form>
+          </div>
+
+          <ul class="nav nav-pills nav-stacked"  style="font-size: x-large;">
+              <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li><br>
+              <li><a href="/admin/purchase"> <i class="fa fa-calendar"></i> Purchase History <span class="label label-warning pull-right r-activity">9</span></a></li><br>
+              <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
+          </ul>
+      </div>
+  </div>
+      <div class="panel" >
+          <div class="panel-body bio-graph-info" style="color: black;">
+              <h1>Bio Graph</h1>
+              <div class="row">
+                  <div class="bio-row">
+                      <p><span>Full Name </span>: <%= username  %></p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Country </span>: Cambodai</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Birthday</span>: 13 July 1983</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Occupation </span>:Customer</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Email </span>:<%=username  %>@gmail.com</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Mobile </span>: (12) 03 4567890</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Phone </span>: 88 (02) 123456</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+        
+</div>
+
+</div>

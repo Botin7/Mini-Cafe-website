@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProductPage</title>
+    <link rel="stylesheet" href="../public/assets/css/Homepage.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/assets/css/ProductPage.css">
+    <link rel="stylesheet" href="../public/assets/css/star-rating.css">
+    <script src="../public/assets/js/star-rating.js"></script>
+</head>
+<body id="body">
+    <div>
+        <td>
+            <div class="header" style="background: 0%;">
+                
+                <img id="back" src="../public/assets/img/coffee-cover.png" walt="">
+                <div id="top-bar">
+                    <div id="logo">
+                        <form id="lo" action="http://localhost:3000/"><button id="home" ><img id="logoo"  src="../public/assets/img/logo3.jpg" height="70px" alt=""></button></form>
+                        <div id="profile" style="border: black solid 2px; border-radius: 5%;">
+                                <div id="panda-box">
+                                    <h2 id="pf_name">
+                                        <% if (!username) { %>
+                                            User
+                                        <% } else{ %>
+                                            <%=username%>
+                                        <% } %>  
+                                    </h2>
+                                    <form action="/UserProfile"> <button id="btn-pf">
+                                    <img id="panda" src="../public/assets/img/profile icon.png" alt="" srcset="" style="width: 50px;height: 50px;"> </button></form>  
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                </div>
+                               <%#  <form class="search" action="/search" method="POST">
+                    <input type="text" placeholder="" name="search2">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>%>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <% if (username == "admin2021") { %>
+                    <form action="http://localhost:3000/admin-Page"><button type="submit" id="adminBtn">Go to Admin Panel</button></form>
+                <% } %>
+            </div>
+        </td>
+    </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="background">
+        <div id="menu-Bar">
+            
+            <form action="http://localhost:3000/monday-special/"><button id="special">Special Offer</button></form>
+            <form action="http://localhost:3000/chocolate/"><button id="special">Coffee</button></form>
+            <form action="http://localhost:3000/combo-deals/"><button id="special">Chocolate</button></form> 
+            <form action="http://localhost:3000/drink-page/"><button id="special">Tea</button></form>
+            
+         </div>
+
+        
+
+       
+
+        <div id="main_section">
+            <div id="product_section">
+                <div id="product_img">
+                    <img src="../public/assets/img/chocolate.jpg" alt="" id="pizza">
+                </div>
+                <div class="product_info">
+                    <h1 class="product_title"><%= product.title %></h1>
+                    <div id="product_rating">
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <% var total = 0 %>
+                        <% var ratings = 0 %>  
+                        <% for( let i = 0; i < comment.length; i++ ) { %>
+                            <% if (product._id == comment[i].productId) { %>
+                                <% total = total + comment[i].rating %>
+                                <% ratings++ %> 
+                            <% } %>
+                        <% } %>
+                        <% var aver = total / ratings %> 
+                        <span class="rating_score"> 
+                        <% if (ratings == 0) { %>
+                            0
+                        <% } 
+                        else { %>
+                            <%=Math.round(aver * 10) / 10 %> <!-- Round rating to 1 decimal -->
+                        <% } %>
+                            / 5 </span> 
+                        <span> | </span>
+                        <span class="total_rating"> <%= ratings %> ratings </span>
+                        <div class="product_price">$<%= product.price %> </div>
+                    </div>
+                    
+                    <hr>
+                    <br><br>
+                    <p class="product_descript"><%= product.description %></p>
+                    <div id="purchase_button">
+                        
+                        <form action="http://localhost:3000/orderform/<%=product._id%>"><input type="text" name="price" value="<%=product.price%>" style="display: none;" id="price"><button id="order_button">Order Now</button></form>
+                        
+                        
+                         <a href="/"><button id="cart_button">Back</button></a>
+                       
+                    </div>
+                    
+                </div>
+            </div>
+            <br><hr><br>
+            <h1 id="customer_review">Customer Reviews</h1>
+            <div id="review_section">
+                <div id="rating_section">
+                    <h2 id="rating">Rating</h2>
+                    <h3>Total Rating: <%= ratings %></h3>
+                    <%  var count1=0 %> 
+                    <%  var count2=0 %> 
+                    <%  var count3=0 %> 
+                    <%  var count4=0 %> 
+                    <%  var count5=0 %> 
+                    <% for( let i = 0; i < comment.length; i++ ) { %>
+                        <% if (product._id == comment[i].productId) { %>
+                            <% if (comment[i].rating == 1) { %>
+                                <% count1++ %> 
+                            <% } else if (comment[i].rating == 2) { %>
+                                <% count2++ %>
+                            <% } else if (comment[i].rating == 3) { %>
+                                <% count3++ %>
+                            <% } else if (comment[i].rating == 4) { %>
+                                <% count4++ %>
+                            <% } else if (comment[i].rating == 5) { %>
+                                <% count5++ %>
+                            <% } %>
+                        <% } %>
+                    <% } %>
+                    <div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="customer"><%= count5 %> Customer</span>
+                    </div>
+                    <div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="customer"><%= count4 %>  Customer</span>
+                    </div>   
+                    <div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="customer"><%= count3 %> Customer</span>
+                    </div> 
+                    <div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="customer"><%= count2 %> Customer</span>
+                    </div> 
+                    <div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="customer"><%= count1 %> Customer</span>
+                    </div> 
+                </div>
+                <div class="comment_section">
+                    <h2 id="comment">Comments</h2>
+
+                    <% var j = 0 %>
+                    <% var k = -1 %>
+                    <table id="customer_comment">
+                        <% for(var i=0; i< comment.length; i++) {%>
+                            <% if (product._id == comment[i].productId) { %>
+                                <% if (comment[i].username == username) { %>
+                                    <% k = i %>
+                                <% } %>
+                                <tr>
+                                    <td class="review">
+                                        <div class="review_info">
+                                            <div class="reviewer_profile_pic"><img src="../assets/img/panda.jpg" alt=""></div>
+                                            <div>
+                                                <span class="reviewer_name"><%= comment[i].username %></span>
+                                                <% switch (comment[i].rating) {
+                                                    
+                                                    case 1 : %>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                            <% break;
+                                                    
+                                                    case 2 : %>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                            <% break;
+                                                    
+                                                    case 3 : %>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                            <% break;
+        
+                                                    case 4 : %>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                            <% break;
+        
+                                                    case 5 : %>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                            <% break;
+                                                } %>
+        
+                                                <div class="review_date"><%= comment[i].postAt %></div>
+                                            </div>
+                                        </div>
+                                        <div class="review_comment">
+                                            <%= comment[i].comment %>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% j++ %>
+                            <% } %>
+                        <% } %>
+                    </table>
+                    <% if (j == 0) { %>
+                        <div>This isn't any comment yet.</div>
+                    <% } %>
+                    
+                    <br><br>
+
+                    <% if (k >=0 ) { %>
+                        <h3>Your Comment</h3>
+                        <table id="customer_comment">
+                            <tr>
+                                <td class="review">
+                                    <div class="review_info">
+                                        <div class="reviewer_profile_pic"><img src="../assets/img/panda.jpg" alt=""></div>
+                                        <div>
+                                            <span class="reviewer_name"><%= comment[k].username %></span>
+                                            <% switch (comment[k].rating) {
+                                                
+                                                case 1 : %>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                        <% break;
+                                                
+                                                case 2 : %>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                        <% break;
+                                                
+                                                case 3 : %>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                        <% break;
+    
+                                                case 4 : %>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                        <% break;
+    
+                                                case 5 : %>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                        <% break;
+                                            } %>
+    
+                                            <div class="review_date"><%= comment[k].postAt %></div>
+                                        </div>
+                                    </div>
+                                    <div class="review_comment">
+                                        <%= comment[k].comment %>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <div class="comment_box">
+                            <div class="summit_button">
+                                <form action="/newComment" method="POST">
+                                    <input type="hidden" name="commentId" value="<%= comment[k]._id%>">
+                                    <input type="hidden" name="productId" value="<%=product._id%>">
+                                    <button class="button" id="send_new_comment_button">Send new review</button>    
+                                </form>
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <h3>Write your review here</h3>
+                        <form method="POST" action="/api/comment" onsubmit="return validateForm()" name="commentForm">
+                            <input type="hidden" name="productId" value="<%=product._id%>">
+                            <select class="star-rating" name="rating">
+                                <option value="">Select a rating</option>
+                                <option value="5">Excellent</option>
+                                <option value="4">Very Good</option>
+                                <option value="3">Average</option>
+                                <option value="2">Poor</option>
+                                <option value="1">Terrible</option>
+                            </select>
+
+                            <div class="comment_box">
+                                <fieldset>
+                                        <textarea class="input_comment" rows="10" type="text" name="comment"></textarea>
+                                </fieldset> 
+                                <br>
+                                <div class="summit_button">
+                                    <button class="button" id="send_button"><i class="fa fa-reply" aria-hidden="true" type="submit"></i> Send</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="alert" id="alertRating">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Please select a rating.
+                        </div>
+                        <div class="alert" id="alertComment">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Please write a comment.
+                        </div>
+                        <div class="alert" id="alertWord">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            Comment cannot contain inappropiate words.
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>       
+</body>
+
+<script>
+    // {
+    const ratings = {
+        pizza: '<%= aver %>',
+    }
+    var stars = new StarRating('.star-rating');
+    stars.rebuild();
+    
+    //Run getRatings
+    document.addEventListener('DOMContentLoaded',getRatings);
+
+    //Get Rating
+    function getRatings() {
+        for (let rating in ratings) {
+            const starPercentage = ((ratings[rating]) / 5) * 100;
+            const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
+
+            //Set width with star percentage
+            document.querySelector(".stars-inner").style.width = starPercentageRounded;
+        }
+    }
+
+    function validateForm() {
+        // Validating Empty Comment and Empty Rating
+        document.getElementById("alertRating").style.display = "none";
+        document.getElementById("alertComment").style.display = "none";
+
+        let comment = document.forms["commentForm"]["comment"].value;
+        let rating = document.forms["commentForm"]["rating"].value;
+        if (rating == "" && comment == "") {
+            document.getElementById("alertRating").style.display = "block";
+            document.getElementById("alertComment").style.display = "block";
+            return false;
+        }
+        if (rating == "") {
+            document.getElementById("alertRating").style.display = "block";
+            return false;
+        }
+        if (comment == "") {
+            document.getElementById("alertComment").style.display = "block";
+            return false;
+        }
+        
+        // Validating Inappropiate words
+        var badWords = ["crap", "trash", "poop", "anyswearword"]; // Can add more
+        // "i" is to ignore case and "g" for global "|" for OR match
+        var regex = new RegExp(badWords.join("|"), "gi");
+        if (comment.match(regex).length > 0){
+            document.getElementById("alertWord").style.display = "block";
+            return false;
+        }
+    }   
+</script>
+</html>

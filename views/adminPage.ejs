@@ -1,0 +1,179 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="../public/assets/css/adminPage.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700|Inconsolata:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- local  -->
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+</head>
+
+<body>
+
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-md  navbar-light" style="background-color: rgb(99, 99, 131)" >
+        <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-toggle="collapse" data-target="#myNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse " id="myNavbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- sidebar navbar -->
+                    <div class="col-lg-3 col-xl-2 col-md-4 sidebar fixed-top" style="background-color: #4d4dff">
+                        <a href="#" class="navbar-brand text-white d-block mx-auto text-center mb-4 bottom-border pb-2">
+                        Admin Panel
+                       
+                        </a>
+
+                        <img src="../public/assets/img/profile.jpg" width="40"height="40" alt="nice" class="rounded-circle mr-3">
+                        <a href="#" class="text-white ">Admin </a>
+                        <div class="border-bottom pb-3"></div>
+                        <ul class="navbar-nav flex-column mt-4">
+                            <li class="nav-item">
+                                <a href="/admin-page" class="nav-link text-light p-3 mb-2  sidebar-link"> <i class="fa fa-home text-light fa-lg mr-3" aria-hidden="true"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/profile-page" class="nav-link text-light p-3 mb-2  sidebar-link"> <i class="fa fa-user text-light fa-lg mr-3" aria-hidden="true"></i> Profile
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/message-box" class="nav-link text-light p-3 mb-2 sidebar-link"> <i class="fa fa-envelope text-light fa-lg mr-3" aria-hidden="true"></i> Inbox
+                                </a>
+                            </li>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/add-product" class="nav-link text-light p-3 mb-2 sidebar-link"> <i class="fa fa-plus text-light fa-lg mr-3" aria-hidden="true"></i> Add Product
+                                </a>
+                                
+
+                            </li>
+                            <li class="nav-item">
+                                <a href="/orderlog" class="nav-link text-light p-3 mb-2 sidebar-link"> <i class="fa fa-book text-light fa-lg mr-3" aria-hidden="true"></i> Order Log
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/commentlog" class="nav-link text-light p-3 mb-2 sidebar-link"> <i class="fa fa-comment text-light fa-lg mr-3" aria-hidden="true"></i> Comment Log
+                                </a>
+                            </li>
+                        
+                        </ul>
+                    </div>
+                    <!-- end sidebar -->
+
+                    <!--  top nav-->
+                    <div style="background-color: #f2f2f2;margin-left: 270px;margin-right: 0;width: 1500px;" >
+                        <div class="row align-items-center" style="background-color:  #4d4dff;margin-bottom:15px;overflow: hidden;position: fixed;top: 0;height: 120px">
+                            <div class="col-md-4" >
+                                <h4 class="text-light text-uppercase mb-0" style="padding: 20px;"><i class="fa fa-home text-light fa-lg mr-3" aria-hidden="true"></i>Dashboard</h4>
+                            </div>
+                            <div class="col-md-5">
+                                <form>
+                                    <div class="input-group">
+                                        <input id="search" type="text" class="form-control"id="search-input" placeholder="Search here">
+                                        <button id="search_icon" type="button" class="btn btn-light"id="search-button"><i class="fa fa-search text-danger"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item icon-parent">
+                                        <a href="/message-box" class="nav-link icon-bullet "><i class="fa fa-comments text-light fa-lg mr-3"></i></a>
+                                    </li>
+                                     <li class="nav-item icon-parent">
+                                        <a href="#" class="nav-link icon-bullet"><i  class="fa fa-bell text-light fa-lg mr-3"></i></a>
+                                    </li>
+                                     <li class="nav-item icon-parent ">
+                                       <a href="/" class="nav-link "><i  class="fa fa-sign-out text-light fa-lg mr-3"></i></a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                          
+                          
+                        </div>
+                        <div class="comment_section" style="width: 100%;">
+                            <h2 id="comment" style="overflow: hidden;position: fixed;background-color: #f2f2f2;width: 100%;margin-top: -87px;"><hr><b>List Produts</b> <hr></h2>
+        
+                            <table style="margin-top: 200px;">
+                                <% for(var i=0; i< price.length; i++) {%> 
+                                <tr >
+                                    <td class="review" >
+                                        <div class="review_info" style="border: 1px solid #2222; padding-left: 20px; width: 80%;" >
+                                            <div class="row">
+                                                <div class="column">
+                                                    <img src="../public/assets/img/profile round.png" alt="" width="100px">
+                                                </div>
+                                                <div class="column">
+                                                  <p>Product's name </p>
+                                                  <p>Price  </p>
+                                                  <p>imageURL </p>
+                                                  <p>Description  </p>
+                                                  <p>Types  </p>
+                                                </div>
+                                                <div class="column3" id="column2">
+                                                  <p>:&nbsp;<%= price[i].title %></p>
+                                                  <p>:&nbsp;<%= price[i].price %></p>
+                                                  <p>:&nbsp;<%= price[i].imageUrl %></p>
+                                                  <p>:&nbsp;<%= price[i].description %> </p>
+                                                  <p>:&nbsp;<%= price[i].category %></p>
+                                                </div>
+                                                <div class="column4">
+                                                  <form action="http://localhost:3000/delete" method="POST" style="float: right;">
+                                                    <input type="hidden" name="prodId" value="<%= price[i].id%>">
+                                                    <button class="btn btn-danger" type="submit" style="width: 100px;"><i class="fa fa-trash"></i>Delete</button></form>
+                                                    <form action ="http://localhost:3000${}" method="POST" style="float: right;">
+                                                    <input type="hidden" name="prodId" value="<%= price[i].id%>">
+                                                    <button type="submit" class="btn btn-warning" style="width: 100px;"><i class="fa fa-edit"></i></i>Edit</button>
+                                                </form>
+                                                </div><hr>
+                                              </div>
+                                        </div> 
+                                    </td>
+                                </tr>
+                                    <% } %>
+                            </table>
+                        </div>
+					</div>
+				</div>
+                        
+
+                    </div>
+                    <!-- end nav -->
+                </div>
+            </div>
+        </div>
+
+    </nav>

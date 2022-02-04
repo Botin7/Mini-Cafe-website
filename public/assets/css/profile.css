@@ -1,0 +1,57 @@
+#profile{
+    border: 2px solid black;
+    background-color: #f13535;
+    height: 60%px;
+    width: 50%;
+    margin-left: 300px;
+    padding: 20px;
+}
+#camera{
+    width: 20px; 
+    background-color: #f13535;
+}
+#button_cam{
+    position: absolute;
+    width: 30px;
+    height: 25px;
+    text-align: center;
+    margin-left: 390px;
+    bottom: 5%;
+}
+#container{
+    position: relative;
+    float: right;
+}
+#small
+{
+    position: absolute;
+}
+
+#name{
+    font-weight: bold;
+    color:black;
+    text-align: center;
+    font-size: larger;
+}
+#back{
+ border: 1px solid black;
+ color: black;
+ background-color: #f13535;
+}
+hr{
+    background-color: black;
+    height: 3px;
+    border: 0px;
+}
+button{
+    background-color: #f13535;
+    font-weight: bold;
+    font-family: 'MilkyNice-Clean', Arial, sans-serif;
+    font-size: larger;
+    border: 0px;
+    padding: 10px;
+}
+h1{
+    text-align: center;
+    font-size: xx-large;
+}
